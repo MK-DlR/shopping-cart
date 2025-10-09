@@ -1,14 +1,21 @@
-import './App.css'
+// App.jsx
 
-function App() {
+import { Link } from "react-router";
 
+const App = () => {
   return (
-    <>
-      <div>
-        hi
-      </div>
-    </>
-  )
-}
+    <div>
+      <h1>Hello from the main page of the app!</h1>
+      <p>Here are links to other pages:</p>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/navigation">Navigation bar</Link>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+};
 
-export default App
+export default App;

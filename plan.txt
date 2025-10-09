@@ -1,0 +1,49 @@
+1. component and folder structure
+    a. needed components/functionalities
+        a1. components:
+            - home
+            - shop
+            - cart
+            - navigation
+Done
+
+2. 3 pages
+    a. home page
+    b. shop page
+    c. cart page
+    d. navigation bar on all pages
+        d1. that allows user to move between pages
+        d2. the only thing that always shows
+
+3. home page
+    a. whatever images/info/etc
+
+4. shop page
+    a. individual card elements
+        a1. for each product
+        a2. with input field
+            - lets user manually type in item amount
+            - also include increment/decrement buttons
+        a3. title for item
+        a4. "add to cart" buttons
+
+5. when items are in cart
+    a. cart page link in navigation
+        a1. should indicate amount of items in cart
+            - updates in real time as items are added/removed
+
+6. cart page
+    a. display items and qualities
+    b. allow users to increase/decrease quantities of items in cart
+        b1. including removal
+    c. no need for checkout/payment system
+
+7. fetch items using api
+    a. https://fakestoreapi.com/
+
+8. clear out any "missing in props validation" errors
+
+9. test throuroughly using React Testing Library
+    a. don't test "react-router-dom" directly
+
+10. style application
