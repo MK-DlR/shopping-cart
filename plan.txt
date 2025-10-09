@@ -14,9 +14,11 @@ Done
     d. navigation bar on all pages
         d1. that allows user to move between pages
         d2. the only thing that always shows
+Done
 
 3. home page
     a. whatever images/info/etc
+Wip (low priority)
 
 4. shop page
     a. individual card elements
@@ -25,11 +27,15 @@ Done
             - lets user manually type in item amount
             - also include increment/decrement buttons
         a3. title for item
-        a4. "add to cart" buttons
+        a4. "add to cart" button
+            - button should add selected amount to cart
+            - after adding to cart, input amount should return to 1
+Wip
 
-5. when items are in cart
-    a. cart page link in navigation
-        a1. should indicate amount of items in cart
+5. nav bar
+    a. when items are in cart
+        a1. cart page link in navigation
+            - should indicate amount of items in cart
             - updates in real time as items are added/removed
 
 6. cart page
@@ -40,6 +46,7 @@ Done
 
 7. fetch items using api
     a. https://fakestoreapi.com/
+Done
 
 8. clear out any "missing in props validation" errors
 

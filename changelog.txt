@@ -1,5 +1,7 @@
 10/9/25:
 
+- Map API items to cards
+- Set up Items with API call
 - Set home to default page
 - Implement basic nav bar
 - Install and set up basic router
