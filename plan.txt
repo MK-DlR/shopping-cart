@@ -42,10 +42,13 @@ Done
 
 6. cart page
     a. display items and qualities
+    Done
     b. allow users to increase/decrease quantities of items in cart
-        b1. including removal
-    c. no need for checkout/payment system
-        c1. for "checkout" button, use poppo gif in pop up module?
+    Wip
+    c. allow users to entirely delete item in cart
+    Wip
+    d. no need for checkout/payment system
+        d1. for "checkout" button, use poppo gif in pop up module?
 Wip
 
 7. fetch items using api

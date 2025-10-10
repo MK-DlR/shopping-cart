@@ -1,5 +1,6 @@
 10/10/25:
 
+- Update Cart and Items to share layout style
 - Update Cart to display added items and quantities
 - Update addCart to push additional information to array
 - Move displaying Navigation to only be in App
