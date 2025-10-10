@@ -1,3 +1,8 @@
+10/10/25:
+
+- Move displaying Navigation to only be in App
+- Create addCart to handle pushing item quantities to cart amount display
+
 10/9/25:
 
 - Map API items to cards

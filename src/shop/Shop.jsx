@@ -1,14 +1,15 @@
 // Shop.jsx
 
-import Navigation from "../navigation/Navigation.jsx";
+import { useOutletContext } from "react-router";
 import Items from "./Items.jsx";
 
 const Shop = () => {
+    const { cartArray, setCartArray } = useOutletContext();
+
     return (
         <div>
-            <Navigation />
             <h1>Hello from shop page!</h1>
-            <Items />
+            <Items cartArray={cartArray} setCartArray={setCartArray}/>
         </div>
     );
 };

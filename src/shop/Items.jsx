@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const Items = () => {
+const Items = ({ cartArray, setCartArray }) => {
     const [items, setItems] = useState([]);
     const [quantities, setQuantities] = useState({});
 
@@ -29,6 +29,29 @@ const Items = () => {
         }));
     };
 
+    const addCart = (itemId, newQuantity) => {
+        // clicking the add to cart button
+        // adds the selected amount of that item to the cart
+        // pushes added items (in quantity) to array
+        // and displays array length as cart # 
+
+        console.log(`Added to cart: ${newQuantity} of item number ${itemId}`);
+        
+
+        setCartArray(prev => {
+            const newItems = [];
+            // loop to push item quantities
+            for (let i = 0; i < newQuantity; i++) {
+                newItems.push(itemId)
+            }
+            // return new array combining previous and new items
+            return [...prev, ...newItems];
+        })
+
+        console.log(cartArray);
+        return cartArray;
+    }
+
     return (
         <div className="itemContainer">
             {items.map(item => (
@@ -36,6 +59,7 @@ const Items = () => {
                     key={item.id}
                     className="itemSingle"
                 >
+                    <img className="itemImage" src={item.image} />
                     <h3 className="itemName">{item.title}</h3>
                     <p className="itemPrice">${item.price}</p>
                     <input 
@@ -45,7 +69,7 @@ const Items = () => {
                         min="1"
                         onChange={(e) => handleQuantityChange(item.id, e.target.value)}
                     />
-                    <button className="addCard">Add To Cart</button>
+                    <button className="addCart" onClick={() => addCart(item.id, quantities[item.id])}>Add To Cart</button>
                 </div>
             ))}
         </div>

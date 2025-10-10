@@ -11,25 +11,14 @@ import Shop from "./shop/Shop.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "cart",
-    element: <Cart />,
-  },
-  {
-    path: "home",
-    element: <Home />,
-  },
-  {
-    path: "navigation",
-    element: <Navigation />,
-  },
-  {
-    path: "shop",
-    element: <Shop />,
-  }
+  path: "/",
+  element: <App />,
+  children: [
+    { path: "home", element: <Home /> },
+    { path: "shop", element: <Shop /> },
+    { path: "cart", element: <Cart /> }
+  ]
+}
 ]);
 
 createRoot(document.getElementById("root")).render(

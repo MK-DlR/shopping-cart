@@ -2,11 +2,11 @@
 
 import { Link } from "react-router";
 
-const Navigation = () => {
+const Navigation = ({ cartCount }) => {
     return (
         <div>
             <nav>
-                <Link to="/home">Home</Link> | <Link to="/shop">Shop</Link> | <Link to="/cart">Cart (#)</Link>
+                <Link to="/home">Home</Link> | <Link to="/shop">Shop</Link> | <Link to="/cart">Cart ({cartCount})</Link>
             </nav>
         </div>
     );

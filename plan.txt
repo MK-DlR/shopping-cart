@@ -29,7 +29,6 @@ Wip (low priority)
         a3. title for item
         a4. "add to cart" button
             - button should add selected amount to cart
-            - after adding to cart, input amount should return to 1
 Wip
 
 5. nav bar
@@ -37,6 +36,9 @@ Wip
         a1. cart page link in navigation
             - should indicate amount of items in cart
             - updates in real time as items are added/removed
+    b. push added items (in quantity) to array
+        b1. display array length as cart #
+Done
 
 6. cart page
     a. display items and qualities
