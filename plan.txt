@@ -29,7 +29,7 @@ Wip (low priority)
         a3. title for item
         a4. "add to cart" button
             - button should add selected amount to cart
-Wip
+Done
 
 5. nav bar
     a. when items are in cart
@@ -45,6 +45,7 @@ Done
     b. allow users to increase/decrease quantities of items in cart
         b1. including removal
     c. no need for checkout/payment system
+Wip
 
 7. fetch items using api
     a. https://fakestoreapi.com/

@@ -29,21 +29,16 @@ const Items = ({ cartArray, setCartArray }) => {
         }));
     };
 
+    // adds the selected amount of that item to the cart
     const addCart = (itemId, newQuantity) => {
-        // clicking the add to cart button
-        // adds the selected amount of that item to the cart
-        // pushes added items (in quantity) to array
-        // and displays array length as cart # 
-
         console.log(`Added to cart: ${newQuantity} of item number ${itemId}`);
         
-
         setCartArray(prev => {
             const newItems = [];
-            // loop to push item quantities
-            for (let i = 0; i < newQuantity; i++) {
-                newItems.push(itemId)
-            }
+            // find first item where item.id equals itemId
+            const foundItem = items.find(item => item.id === itemId);
+            // push item info to array
+            newItems.push({ id: itemId, title: foundItem.title, price: foundItem.price, image: foundItem.image, quantity: newQuantity })
             // return new array combining previous and new items
             return [...prev, ...newItems];
         })

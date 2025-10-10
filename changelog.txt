@@ -1,5 +1,6 @@
 10/10/25:
 
+- Update addCart to push additional information to array
 - Move displaying Navigation to only be in App
 - Create addCart to handle pushing item quantities to cart amount display
 
