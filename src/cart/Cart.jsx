@@ -1,11 +1,9 @@
 // Cart.jsx
 
 import { useOutletContext } from "react-router";
-import { useState, useEffect } from "react";
 
 const Cart = () => {
-    const [quantities, setQuantities] = useState({});
-    const { cartArray, setCartArray } = useOutletContext();
+    const { quantities, cartArray, setCartArray, handleIncrement, handleDecrement, handleManualChange, items } = useOutletContext();
     const consolidatedItems = {};
 
     cartArray.forEach(item => {
@@ -20,53 +18,33 @@ const Cart = () => {
 
     const itemsArray = Object.values(consolidatedItems);
 
-    // create initial quantities from consolidated items
-    useEffect(() => {
-        const initialQuantities = {};
-        itemsArray.forEach(item => {
-            initialQuantities[item.id] = item.quantity;
-        });
-        setQuantities(initialQuantities);
-    }, [cartArray]);
-
-    // TO DO: change this from default displaying 1 to however many items of that type are in the cart
-    const handleQuantityChange = (itemId, newQuantity) => {
-        setQuantities(prev => ({
-            ...prev,
-            [itemId]: Math.max(1, parseInt(newQuantity) || 1)
-        }));
-    };
-
-    // TO DO: update specified amount of item from cart
-    const updateQuantity = (itemId, changeQuantity) => {
-        console.log(`Updated quantity: ${changeQuantity} of item #${itemId}`);
-    }
-
     // delete item from cart entirely
     const deleteItem = (itemId) => {
         console.log(`Deleted: item #${itemId}`);
         setCartArray(prev => prev.filter(item => item.id !== itemId));
     }
 
-    // TO DO: update cart in real time every time quantities change or item is removed
-    // note: deleteItem works in real time
-
     // display items and information in cart
-    // TO DO: MAKE SURE QUANTITY DISPLAYED IN INPUT IS QUANTITY OF ITEM IN CART
-    const cartItems = itemsArray.map((item, index) =>
-        <div key={index} className="itemSingle">
+    const cartItems = itemsArray.map((item) =>
+        <div
+            key={item.id}
+            className="itemSingle"
+        >
             <img className="itemImage" src={item.image} />
             <h3 className="itemName">{item.title}</h3>
             <p className="itemPrice">${item.price}</p>
-            <input
-                className="quantityAmount"
-                type="number"
-                value={quantities[item.id] || 1}
-                min="1"
-                onChange={(e) => handleQuantityChange(item.id, e.target.value)}
-            />
-            <button className="updateQuantity" onClick={() => updateQuantity(item.id, quantities[item.id])}>Update Quantity</button>
-            <button className="deleteItem" onClick={() => deleteItem(item.id)}>Delete</button>
+            <div className="inputAndDelete">
+                <div className="inputGroup">
+                    <button id={`decrement-${item.id}`} 
+                        onClick={() => handleDecrement(item)}>-</button>
+                    <input type="text" id="input" 
+                        value={quantities[item.id]} 
+                        onChange={(e) => handleManualChange(item, e.target.value)}/>
+                    <button id={`increment-${item.id}`} 
+                        onClick={() => handleIncrement(item)}>+</button>
+                </div>
+                <button className="deleteItem" onClick={() => deleteItem(item.id)}>Delete</button>
+            </div>
         </div>
     );
 
@@ -75,6 +53,8 @@ const Cart = () => {
         <h1>Hello from cart page!</h1>
         <div className="itemContainer">
             {cartItems}
+            <p className="cartTotal">Subtotal (# Items): <b>$[Total Price]</b></p>
+            <button className="checkout">Checkout</button>
         </div>
     </div>
 );

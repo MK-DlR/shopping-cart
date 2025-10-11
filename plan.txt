@@ -50,14 +50,13 @@ Done
 
 6. cart page
     a. display items and qualities
-    Done
     b. allow users to increase/decrease quantities of items in cart
-    Wip (done in Shop - utilize same code)
     c. allow users to entirely delete item in cart
-    Done
     d. make sure Cart(#) in Navigation updates along with cart page
     e. no need for checkout/payment system
         e1. for "checkout" button, use poppo gif in pop up module?
+    Wip
+    f. display total price of items at bottom
 Wip
 
 7. fetch items using api

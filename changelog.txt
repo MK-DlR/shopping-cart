@@ -1,5 +1,6 @@
 10/11/25:
 
+- Update Cart to use same quantity update functions as Items
 - Lift useEffect API fetch to App
 - Lift handleQuantityChange, handleIncrement, handleDecrement, handleManualChange, and addCart to App
 - Fix inputting item quantity and navigating to different page resetting selected amount in Shop
