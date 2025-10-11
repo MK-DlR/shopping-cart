@@ -41,6 +41,17 @@ const Items = ({ cartArray, setCartArray }) => {
         addCart(itemId, newQuantity);
     };
 
+    const handleManualChange = (itemId, newQuantity) => {
+        let checkType;
+        checkType = parseInt(newQuantity);
+        isNaN(checkType);
+        if (isNaN(checkType)) {
+            checkType = 0;
+        }
+        handleQuantityChange(itemId, checkType);
+        addCart(itemId, checkType);
+    };
+
     // adds the selected amount of that item to the cart
     const addCart = (itemId, newQuantity) => {
         console.log(`Added to cart: ${newQuantity} of item number ${itemId}`);
@@ -93,9 +104,13 @@ const Items = ({ cartArray, setCartArray }) => {
                     <h3 className="itemName">{item.title}</h3>
                     <p className="itemPrice">${item.price}</p>
                     <div className="inputGroup">
-                        <button id={`decrement-${item.id}`} onClick={() => handleDecrement(item.id)}>-</button>
-                        <input type="text" id="input" value={quantities[item.id]} onChange={(e) => handleQuantityChange(item.id, e.target.value)}/>
-                        <button id={`increment-${item.id}`} onClick={() => handleIncrement(item.id)}>+</button>
+                        <button id={`decrement-${item.id}`} 
+                            onClick={() => handleDecrement(item.id)}>-</button>
+                        <input type="text" id="input" 
+                            value={quantities[item.id]} 
+                            onChange={(e) => handleManualChange(item.id, e.target.value)}/>
+                        <button id={`increment-${item.id}`} 
+                            onClick={() => handleIncrement(item.id)}>+</button>
                     </div>
                 </div>
             ))}
@@ -104,15 +119,3 @@ const Items = ({ cartArray, setCartArray }) => {
 };
 
 export default Items;
-
-/*
-<input 
-    className="quantityAmount" 
-    type="number" 
-    value={quantities[item.id] || 1}
-    min="1"
-    onChange={(e) => handleQuantityChange(item.id, e.target.value)}
-/>
-
-<button className="addCart" onClick={() => addCart(item.id, quantities[item.id])}>Add To Cart</button>
-*/

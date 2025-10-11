@@ -41,13 +41,19 @@ Done
         b2. fix Cart(#)
             - only displaying amount items added individually via "add to cart" button
             - needs to display TOTAL number of items added by any means
-Done
+    c. fix changing page "resetting" base amount of items
+        c1. on shop page
+            - ie, selecting 4 and changing page and coming back
+            - and adding more
+            - overwrites with the new value
+    Wip
+Wip
 
 6. cart page
     a. display items and qualities
     Done
     b. allow users to increase/decrease quantities of items in cart
-    Wip
+    Wip (done in Shop - utilize same code)
     c. allow users to entirely delete item in cart
     Done
     d. make sure Cart(#) in Navigation updates along with cart page

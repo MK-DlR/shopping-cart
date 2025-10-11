@@ -1,5 +1,7 @@
 10/11/25:
 
+- Fix typing letters into quantity input displaying NaN
+- Fix clearing out quantity input displaying NaN
 - Update increment/decrement buttons in Shop to remove items at 0 quantity from cart
 - Remove add to cart button
 - Change increment/decrement buttons in Shop to automatically adjust cart
