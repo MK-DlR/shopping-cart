@@ -1,5 +1,8 @@
 10/11/25:
 
+- Update increment/decrement buttons in Shop to remove items at 0 quantity from cart
+- Remove add to cart button
+- Change increment/decrement buttons in Shop to automatically adjust cart
 - Fix Cart(#) not displaying total amount of items
 
 10/10/25:

@@ -15,7 +15,7 @@ const Items = ({ cartArray, setCartArray }) => {
                 // initialize quantities for each item
                 const initialQuantities = {};
                 data.forEach(item => {
-                    initialQuantities[item.id] = 1;
+                    initialQuantities[item.id] = 0;
                 });
                 setQuantities(initialQuantities);
             })
@@ -25,26 +25,61 @@ const Items = ({ cartArray, setCartArray }) => {
     const handleQuantityChange = (itemId, newQuantity) => {
         setQuantities(prev => ({
             ...prev,
-            [itemId]: Math.max(1, parseInt(newQuantity) || 1)
+            [itemId]: Math.max(0, parseInt(newQuantity))
         }));
+    };
+
+    const handleIncrement = (itemId) => {
+        const newQuantity = quantities[itemId] + 1;
+        handleQuantityChange(itemId, newQuantity);
+        addCart(itemId, newQuantity);
+    };
+
+    const handleDecrement = (itemId) => {
+        const newQuantity = quantities[itemId] - 1;
+        handleQuantityChange(itemId, newQuantity);
+        addCart(itemId, newQuantity);
     };
 
     // adds the selected amount of that item to the cart
     const addCart = (itemId, newQuantity) => {
         console.log(`Added to cart: ${newQuantity} of item number ${itemId}`);
-        
-        setCartArray(prev => {
-            const newItems = [];
-            // find first item where item.id equals itemId
-            const foundItem = items.find(item => item.id === itemId);
-            // push item info to array
-            newItems.push({ id: itemId, title: foundItem.title, price: foundItem.price, image: foundItem.image, quantity: newQuantity })
-            // return new array combining previous and new items
-            return [...prev, ...newItems];
-        })
 
-        console.log(cartArray);
-        return cartArray;
+        setCartArray(prev => {
+            // remove item from cart if quantity is decremented to 0
+            if (newQuantity <= 0) {
+            // filter out all items with that itemId
+            const filteredCart = prev.filter(item => item.id !== itemId);
+            // return early
+            return filteredCart;
+        }
+
+            // check if item already exists in cart
+            const itemExists = prev.some(item => item.id === itemId);
+            
+            if (itemExists) {
+                // remove all instances of this item and add one with new quantity
+                const filteredCart = prev.filter(item => item.id !== itemId);
+                const foundItem = items.find(item => item.id === itemId);
+                return [...filteredCart, { 
+                    id: itemId, 
+                    title: foundItem.title, 
+                    price: foundItem.price, 
+                    image: foundItem.image, 
+                    quantity: newQuantity 
+                }];
+            } else {
+                // item doesn't exist, add it
+                const foundItem = items.find(item => item.id === itemId);
+                return [...prev, { 
+                    id: itemId, 
+                    title: foundItem.title, 
+                    price: foundItem.price, 
+                    image: foundItem.image, 
+                    quantity: newQuantity 
+                }];
+            }
+        });
     }
 
     return (
@@ -57,14 +92,11 @@ const Items = ({ cartArray, setCartArray }) => {
                     <img className="itemImage" src={item.image} />
                     <h3 className="itemName">{item.title}</h3>
                     <p className="itemPrice">${item.price}</p>
-                    <input 
-                        className="quantityAmount" 
-                        type="number" 
-                        value={quantities[item.id] || 1}
-                        min="1"
-                        onChange={(e) => handleQuantityChange(item.id, e.target.value)}
-                    />
-                    <button className="addCart" onClick={() => addCart(item.id, quantities[item.id])}>Add To Cart</button>
+                    <div className="inputGroup">
+                        <button id={`decrement-${item.id}`} onClick={() => handleDecrement(item.id)}>-</button>
+                        <input type="text" id="input" value={quantities[item.id]} onChange={(e) => handleQuantityChange(item.id, e.target.value)}/>
+                        <button id={`increment-${item.id}`} onClick={() => handleIncrement(item.id)}>+</button>
+                    </div>
                 </div>
             ))}
         </div>
@@ -72,3 +104,15 @@ const Items = ({ cartArray, setCartArray }) => {
 };
 
 export default Items;
+
+/*
+<input 
+    className="quantityAmount" 
+    type="number" 
+    value={quantities[item.id] || 1}
+    min="1"
+    onChange={(e) => handleQuantityChange(item.id, e.target.value)}
+/>
+
+<button className="addCart" onClick={() => addCart(item.id, quantities[item.id])}>Add To Cart</button>
+*/
