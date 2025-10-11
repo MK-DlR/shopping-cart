@@ -1,5 +1,6 @@
 10/11/25:
 
+- Add CheckoutModal to confirm purchase
 - Add subtotal calculation and display to Cart
 - Fix tab spacing issues in App
 - Update Cart to use same quantity update functions as Items

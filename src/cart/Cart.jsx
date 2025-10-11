@@ -1,12 +1,14 @@
 // Cart.jsx
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useOutletContext } from "react-router";
+import CheckoutModal from "./CheckoutModal";
 
 const Cart = () => {
     const { quantities, cartArray, setCartArray, handleIncrement, handleDecrement, handleManualChange, items, cartQuantity } = useOutletContext();
-    const consolidatedItems = {};
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const consolidatedItems = {};
     cartArray.forEach(item => {
         if (consolidatedItems[item.id]) {
             // item exists, add to existing quantity
@@ -16,7 +18,6 @@ const Cart = () => {
             consolidatedItems[item.id] = { ...item };
         }
     });
-
     const itemsArray = Object.values(consolidatedItems);
 
     // delete item from cart entirely
@@ -33,6 +34,10 @@ const Cart = () => {
     // cache calculation to only recalculate when cartArray changes
     const priceTotal = useMemo(() => calculatePrice(cartArray), [cartArray]);
 
+    const handleCheckout = () => {
+        setIsModalOpen(true);
+    };
+
     // display items and information in cart
     const cartItems = itemsArray.map((item) =>
         <div
@@ -44,12 +49,12 @@ const Cart = () => {
             <p className="itemPrice">${item.price}</p>
             <div className="inputAndDelete">
                 <div className="inputGroup">
-                    <button id={`decrement-${item.id}`} 
+                    <button id={`decrement-${item.id}`}
                         onClick={() => handleDecrement(item)}>-</button>
-                    <input type="text" id="input" 
-                        value={quantities[item.id]} 
+                    <input type="text" id="input"
+                        value={quantities[item.id]}
                         onChange={(e) => handleManualChange(item, e.target.value)}/>
-                    <button id={`increment-${item.id}`} 
+                    <button id={`increment-${item.id}`}
                         onClick={() => handleIncrement(item)}>+</button>
                 </div>
                 <button className="deleteItem" onClick={() => deleteItem(item.id)}>Delete</button>
@@ -58,15 +63,16 @@ const Cart = () => {
     );
 
     return (
-    <div>
-        <h1>Hello from cart page!</h1>
-        <div className="itemContainer">
-            {cartItems}
-            <p className="cartTotal">Subtotal ({cartQuantity} Items): <b>${priceTotal}</b></p>
-            <button className="checkout">Checkout</button>
+        <div>
+            <h1>Hello from cart page!</h1>
+            <div className="itemContainer">
+                {cartItems}
+                <p className="cartTotal">Subtotal ({cartQuantity} Items): <b>${priceTotal}</b></p>
+                <button className="checkout" onClick={handleCheckout}>Checkout</button>
+            </div>
+            <CheckoutModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
-    </div>
-);
+    );
 };
 
 export default Cart;

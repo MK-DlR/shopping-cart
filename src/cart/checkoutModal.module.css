@@ -1,0 +1,92 @@
+/* checkoutModal.module.css */
+
+/* modal (background) */
+.checkoutModal {
+  display: block; /* changed from none to block since we control visibility with isOpen */
+  position: fixed; /* stay in place */
+  z-index: 1; /* sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* full width */
+  height: 100%; /* full height */
+  overflow: auto; /* enable scroll if needed */
+  background-color: rgb(0,0,0); /* fallback color */
+  background-color: rgba(0,0,0,0.4); /* nlack w/ opacity */
+  -webkit-animation-name: fadeIn; /* fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+
+/* modal Content */
+.modalContent {
+  position: fixed;
+  bottom: 0;
+  background-color: #fefefe;
+  width: 100%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+/* close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalHeader {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modalBody {
+  padding: 2px 16px;
+  text-align: center;
+}
+
+.modalFooter {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* gif */
+.modalGif {
+    width: 700px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* add animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0}
+  to {opacity: 1}
+}
