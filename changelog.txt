@@ -1,3 +1,7 @@
+10/11/25:
+
+- Fix Cart(#) not displaying total amount of items
+
 10/10/25:
 
 - Update Cart and Items to share layout style

@@ -36,8 +36,11 @@ Done
         a1. cart page link in navigation
             - should indicate amount of items in cart
             - updates in real time as items are added/removed
-    b. push added items (in quantity) to array
-        b1. display array length as cart #
+    b. push added items (and quantity) to array
+        b1. display amount as Cart(#)
+        b2. fix Cart(#)
+            - only displaying amount items added individually via "add to cart" button
+            - needs to display TOTAL number of items added by any means
 Done
 
 6. cart page
@@ -46,9 +49,10 @@ Done
     b. allow users to increase/decrease quantities of items in cart
     Wip
     c. allow users to entirely delete item in cart
-    Wip
-    d. no need for checkout/payment system
-        d1. for "checkout" button, use poppo gif in pop up module?
+    Done
+    d. make sure Cart(#) in Navigation updates along with cart page
+    e. no need for checkout/payment system
+        e1. for "checkout" button, use poppo gif in pop up module?
 Wip
 
 7. fetch items using api

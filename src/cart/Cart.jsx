@@ -8,26 +8,6 @@ const Cart = () => {
     const { cartArray, setCartArray } = useOutletContext();
     const consolidatedItems = {};
 
-    // TO DO: change this from default displaying 1 to however many items of that type are in the cart
-    const handleQuantityChange = (itemId, newQuantity) => {
-        setQuantities(prev => ({
-            ...prev,
-            [itemId]: Math.max(1, parseInt(newQuantity) || 1)
-        }));
-    };
-
-    // remove specified amount of item from cart
-    const updateQuantity = (itemId, removeQuantity) => {
-        console.log(`Updated quantity: ${removeQuantity} of item #${itemId}`);
-    }
-
-    // delete item from cart entirely
-    const deleteItem = (itemId) => {
-        console.log(`Deleted: item #${itemId}`);
-    }
-
-    // update cart in real time every time quantities change or item is removed
-
     cartArray.forEach(item => {
         if (consolidatedItems[item.id]) {
             // item exists, add to existing quantity
@@ -40,8 +20,39 @@ const Cart = () => {
 
     const itemsArray = Object.values(consolidatedItems);
 
+    // create initial quantities from consolidated items
+    useEffect(() => {
+        const initialQuantities = {};
+        itemsArray.forEach(item => {
+            initialQuantities[item.id] = item.quantity;
+        });
+        setQuantities(initialQuantities);
+    }, [cartArray]);
+
+    // TO DO: change this from default displaying 1 to however many items of that type are in the cart
+    const handleQuantityChange = (itemId, newQuantity) => {
+        setQuantities(prev => ({
+            ...prev,
+            [itemId]: Math.max(1, parseInt(newQuantity) || 1)
+        }));
+    };
+
+    // TO DO: update specified amount of item from cart
+    const updateQuantity = (itemId, changeQuantity) => {
+        console.log(`Updated quantity: ${changeQuantity} of item #${itemId}`);
+    }
+
+    // delete item from cart entirely
+    const deleteItem = (itemId) => {
+        console.log(`Deleted: item #${itemId}`);
+        setCartArray(prev => prev.filter(item => item.id !== itemId));
+    }
+
+    // TO DO: update cart in real time every time quantities change or item is removed
+    // note: deleteItem works in real time
+
     // display items and information in cart
-    // TO DO: MAKE SURE QUANTITY IN INPUT IS QUANTITY OF ITEM IN CART
+    // TO DO: MAKE SURE QUANTITY DISPLAYED IN INPUT IS QUANTITY OF ITEM IN CART
     const cartItems = itemsArray.map((item, index) =>
         <div key={index} className="itemSingle">
             <img className="itemImage" src={item.image} />
