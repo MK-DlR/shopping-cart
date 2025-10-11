@@ -46,8 +46,7 @@ Done
             - ie, selecting 4 and changing page and coming back
             - and adding more
             - overwrites with the new value
-    Wip
-Wip
+Done
 
 6. cart page
     a. display items and qualities
@@ -66,6 +65,7 @@ Wip
 Done
 
 8. clear out any "missing in props validation" errors
+    a. install eslinter
 
 9. test throuroughly using React Testing Library
     a. don't test "react-router-dom" directly
