@@ -15,12 +15,20 @@ const Items = ({ cartArray, setCartArray }) => {
                 // initialize quantities for each item
                 const initialQuantities = {};
                 data.forEach(item => {
-                    initialQuantities[item.id] = 0;
+                    // check if each item exists in cartArray
+                    const cartItem = cartArray.find(cartItem => cartItem.id === item.id);
+                    // if yes: use existing quantity
+                    if (cartItem) {
+                        initialQuantities[item.id] = cartItem.quantity;
+                    } else {
+                        // if no: set to 0
+                        initialQuantities[item.id] = 0;
+                    };
                 });
                 setQuantities(initialQuantities);
             })
             .catch(error => console.error('Error fetching items:', error));
-    }, []);
+    }, [cartArray]);
 
     const handleQuantityChange = (itemId, newQuantity) => {
         setQuantities(prev => ({
