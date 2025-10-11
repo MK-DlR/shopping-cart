@@ -1,9 +1,10 @@
 // Cart.jsx
 
+import { useMemo } from "react";
 import { useOutletContext } from "react-router";
 
 const Cart = () => {
-    const { quantities, cartArray, setCartArray, handleIncrement, handleDecrement, handleManualChange, items } = useOutletContext();
+    const { quantities, cartArray, setCartArray, handleIncrement, handleDecrement, handleManualChange, items, cartQuantity } = useOutletContext();
     const consolidatedItems = {};
 
     cartArray.forEach(item => {
@@ -23,6 +24,14 @@ const Cart = () => {
         console.log(`Deleted: item #${itemId}`);
         setCartArray(prev => prev.filter(item => item.id !== itemId));
     }
+
+    // calculate cart subtotal
+    const calculatePrice = (cartArray) => {
+        return cartArray.reduce((total, price) => total + (price.price * price.quantity), 0).toFixed(2);
+    }
+
+    // cache calculation to only recalculate when cartArray changes
+    const priceTotal = useMemo(() => calculatePrice(cartArray), [cartArray]);
 
     // display items and information in cart
     const cartItems = itemsArray.map((item) =>
@@ -53,7 +62,7 @@ const Cart = () => {
         <h1>Hello from cart page!</h1>
         <div className="itemContainer">
             {cartItems}
-            <p className="cartTotal">Subtotal (# Items): <b>$[Total Price]</b></p>
+            <p className="cartTotal">Subtotal ({cartQuantity} Items): <b>${priceTotal}</b></p>
             <button className="checkout">Checkout</button>
         </div>
     </div>
