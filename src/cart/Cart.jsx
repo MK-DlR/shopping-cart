@@ -5,7 +5,7 @@ import { useOutletContext } from "react-router";
 import CheckoutModal from "./CheckoutModal";
 
 const Cart = () => {
-    const { quantities, cartArray, setCartArray, handleIncrement, handleDecrement, handleManualChange, items, cartQuantity } = useOutletContext();
+    const { quantities, cartArray, setCartArray, handleIncrement, handleDecrement, handleManualChange, cartQuantity } = useOutletContext();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const consolidatedItems = {};

@@ -1,5 +1,6 @@
 // CheckoutModal.jsx
 
+import PropTypes from "prop-types";
 import poppo from "../../poppo.gif";
 import styles from "./checkoutModal.module.css";
 
@@ -34,5 +35,10 @@ const CheckoutModal = ({ isOpen, onClose }) => {
         </div>
     );
 };
+
+CheckoutModal.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
+}
 
 export default CheckoutModal;

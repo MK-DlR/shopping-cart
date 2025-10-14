@@ -1,5 +1,6 @@
 // Navigation.jsx
 
+import PropTypes from "prop-types";
 import { Link } from "react-router";
 
 const Navigation = ({ cartCount }) => {
@@ -11,5 +12,9 @@ const Navigation = ({ cartCount }) => {
         </div>
     );
 };
+
+Navigation.propTypes = {
+    cartCount: PropTypes.number.isRequired,
+}
 
 export default Navigation;
