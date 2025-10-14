@@ -66,6 +66,16 @@ Done
 Done
 
 9. test throuroughly using React Testing Library
-    a. don't test "react-router-dom" directly
+    a. Cart
+    Wip
+    b. Home
+        b1. not necessary
+    c. Navigation
+    Done
+    d. Shop
+        d1. Items
+        d2. Shop
+            - not necessary, only really displays Items
+    Done
 
 10. style application

@@ -1,6 +1,7 @@
 10/14/25:
 
-- Set up Navigation tests
+- Create Items tests
+- Create Navigation tests
 - Set up testing
 - Fix missing in prop validation errors
 
