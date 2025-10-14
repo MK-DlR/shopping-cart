@@ -18,7 +18,7 @@ Done
 
 3. home page
     a. whatever images/info/etc
-Wip (low priority)
+Wip (low priority - do when styling)
 
 4. shop page
     a. individual card elements
@@ -63,7 +63,7 @@ Done
 Done
 
 8. clear out any "missing in props validation" errors
-    a. install eslinter
+Done
 
 9. test throuroughly using React Testing Library
     a. don't test "react-router-dom" directly

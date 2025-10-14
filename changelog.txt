@@ -1,5 +1,7 @@
 10/14/25:
 
+- Set up Navigation tests
+- Set up testing
 - Fix missing in prop validation errors
 
 10/11/25:
