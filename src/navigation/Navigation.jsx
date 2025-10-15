@@ -7,7 +7,7 @@ import styles from "./navigation.module.css";
 const Navigation = ({ cartCount }) => {
     return (
         <div className={styles.nav}>
-            <nav>
+            <nav className={styles.navText}>
                 <Link to="/home">Home</Link> | <Link to="/shop">Shop</Link> | <Link to="/cart">Cart ({cartCount})</Link>
             </nav>
         </div>

@@ -49,7 +49,7 @@ const Cart = () => {
                 <img className={styles.itemImage} src={item.image} alt={item.title} />
             </div>
             <h3 className={styles.itemName}>{item.title}</h3>
-            <p className={styles.itemPrice}>${item.price}</p>
+            <p className={styles.itemPrice}>${item.price.toFixed(2)}</p>
             <div className={styles.inputAndDelete}>
                 <div className={styles.inputGroup}>
                     <button id={`decrement-${item.id}`}
@@ -70,7 +70,7 @@ const Cart = () => {
             <h1 className={styles.header}>Shopping Cart</h1>
             <div className={styles.cartContainer}>
                 {cartItems}
-                <p className="cartTotal">Subtotal ({cartQuantity} Items): <b>${priceTotal}</b></p>
+                <p>Subtotal ({cartQuantity} Items): <b>${priceTotal}</b></p>
                 <button className="checkout" onClick={handleCheckout}>Checkout</button>
             </div>
             <CheckoutModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

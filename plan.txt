@@ -80,4 +80,4 @@ Done
     a. remember to add Home page content of some kind
     b. have page load default to Home
     c. change checkout modal colors to match theme
-Wip
+Done

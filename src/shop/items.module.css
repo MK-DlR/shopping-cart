@@ -1,7 +1,16 @@
 /* items.module.css */
 
+body {
+    overflow-y: scroll;
+}
+
 .header {
     text-align: center;
+    padding: 10px;
+}
+
+.shopContainer {
+    padding-bottom: 20px;
 }
 
 .itemContainer {
@@ -13,7 +22,6 @@
 }
 
 .itemSingle {
-    height: 350px; 
     width: 250px;
     display: flex;
     flex-direction: column;
@@ -22,6 +30,7 @@
     border: solid 1px rgb(206, 206, 206);
     border-radius: 6px;
     overflow: hidden; /* ensures rounded corners apply to the image background */
+    padding-bottom: 10px;
 }
 
 .imageWrapper {
@@ -62,6 +71,7 @@
     justify-content: center;
     align-items: center; 
     gap: 4px;
+    margin-bottom: 4px;
 }
 
 .cartContainer {
@@ -69,6 +79,7 @@
     flex-direction: column;
     align-items: center;
     gap: 20px; /* gap for consistent spacing */
+    padding-bottom: 20px;
 }
 
 .inputAndDelete {
@@ -80,8 +91,28 @@
 
 /* keep delete button right-aligned */
 .inputAndDelete button:last-child {
-    align-self: flex-end;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: 4px;
+    align-self: center;
+}
+
+button {
+    padding: 6px 12px; 
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #D8084A;
+    transition-duration: 0.4s;
+}
+
+input[type="text"] {
+    padding: 6px 8px;
+    font-size: 16px;
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }

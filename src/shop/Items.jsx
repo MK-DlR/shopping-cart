@@ -17,7 +17,7 @@ const Items = () => {
                         <img className={styles.itemImage} src={item.image} alt={item.title} />
                     </div>
                     <h3 className={styles.itemName}>{item.title}</h3>
-                    <p className={styles.itemPrice}>${item.price}</p>
+                    <p className={styles.itemPrice}>${item.price.toFixed(2)}</p>
                     <div className={styles.input}>
                         <button id={`decrement-${item.id}`} 
                             onClick={() => handleDecrement(item)}>-</button>

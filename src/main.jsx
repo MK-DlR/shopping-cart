@@ -13,6 +13,7 @@ const router = createBrowserRouter([
   path: "/",
   element: <App />,
   children: [
+    { index: true, element: <Home /> }, // <-- default route
     { path: "home", element: <Home /> },
     { path: "shop", element: <Shop /> },
     { path: "cart", element: <Cart /> }

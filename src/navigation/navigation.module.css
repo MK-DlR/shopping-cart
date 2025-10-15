@@ -1,5 +1,31 @@
 /* navigation.module.css */
 
+* {
+    padding: 0;
+    margin: 0;
+}
+
 .nav {
-    text-align: center;
+    background-color: #FFD405;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid #D8084A;
+}
+
+.navText {
+    font-size: 20px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+a:link, a:visited, a:hover {
+    color: rgb(0, 0, 0);
 }
