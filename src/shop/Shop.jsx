@@ -2,13 +2,14 @@
 
 import { useOutletContext } from "react-router";
 import Items from "./Items.jsx";
+import styles from "./shop.module.css";
 
 const Shop = () => {
     const { cartArray, setCartArray } = useOutletContext();
 
     return (
         <div>
-            <h1>Hello from shop page!</h1>
+            <h1 className={styles.header}>Newest Deals</h1>
             <Items cartArray={cartArray} setCartArray={setCartArray}/>
         </div>
     );

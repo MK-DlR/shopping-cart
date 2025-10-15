@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { useOutletContext } from "react-router";
 import CheckoutModal from "./CheckoutModal";
+import styles from "../shop/items.module.css";
 
 const Cart = () => {
     const { quantities, cartArray, setCartArray, handleIncrement, handleDecrement, handleManualChange, cartQuantity } = useOutletContext();
@@ -42,13 +43,15 @@ const Cart = () => {
     const cartItems = itemsArray.map((item) =>
         <div
             key={item.id}
-            className="itemSingle"
+            className={styles.itemSingle}
         >
-            <img className="itemImage" src={item.image} />
-            <h3 className="itemName">{item.title}</h3>
-            <p className="itemPrice">${item.price}</p>
-            <div className="inputAndDelete">
-                <div className="inputGroup">
+            <div className={styles.imageWrapper}>
+                <img className={styles.itemImage} src={item.image} alt={item.title} />
+            </div>
+            <h3 className={styles.itemName}>{item.title}</h3>
+            <p className={styles.itemPrice}>${item.price}</p>
+            <div className={styles.inputAndDelete}>
+                <div className={styles.inputGroup}>
                     <button id={`decrement-${item.id}`}
                         onClick={() => handleDecrement(item)}>-</button>
                     <input type="text" id="input"
@@ -57,15 +60,15 @@ const Cart = () => {
                     <button id={`increment-${item.id}`}
                         onClick={() => handleIncrement(item)}>+</button>
                 </div>
-                <button className="deleteItem" onClick={() => deleteItem(item.id)}>Delete</button>
+                <button onClick={() => deleteItem(item.id)}>Delete</button>
             </div>
         </div>
     );
 
     return (
         <div>
-            <h1>Hello from cart page!</h1>
-            <div className="itemContainer">
+            <h1 className={styles.header}>Shopping Cart</h1>
+            <div className={styles.cartContainer}>
                 {cartItems}
                 <p className="cartTotal">Subtotal ({cartQuantity} Items): <b>${priceTotal}</b></p>
                 <button className="checkout" onClick={handleCheckout}>Checkout</button>

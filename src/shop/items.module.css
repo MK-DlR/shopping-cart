@@ -1,0 +1,87 @@
+/* items.module.css */
+
+.header {
+    text-align: center;
+}
+
+.itemContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px; /* gap for consistent spacing */
+}
+
+.itemSingle {
+    height: 350px; 
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* remove padding so the background can go edge-to-edge */    
+    box-sizing: border-box; /* include padding in width/height calculations */
+    border: solid 1px rgb(206, 206, 206);
+    border-radius: 6px;
+    overflow: hidden; /* ensures rounded corners apply to the image background */
+}
+
+.imageWrapper {
+    background-color: rgb(238, 238, 238);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px; /* controls how tall the background section is */
+}
+
+.itemImage {
+    display: block;
+    margin: 0 auto;
+    height: 150px; 
+    width: 150px; 
+    object-fit: contain; /* prevent image distortion */
+    flex-shrink: 0; /* prevent image from shrinking */
+    background-color: rgb(238, 238, 238);
+}
+
+.itemName {
+    text-align: center;
+    margin: 10px 0;
+    min-height: 80px; 
+    line-height: 1.3; /* tighter line spacing */
+    font-size: 16px; 
+}
+
+.itemPrice {
+    text-align: center;
+    margin: 5px 0;
+}
+
+.input,
+.inputGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 4px;
+}
+
+.cartContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* gap for consistent spacing */
+}
+
+.inputAndDelete {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* allow full width for child elements */
+    gap: 4px; /* space between input group and delete button */
+}
+
+/* keep delete button right-aligned */
+.inputAndDelete button:last-child {
+    align-self: flex-end;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+}

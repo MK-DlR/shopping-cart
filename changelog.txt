@@ -1,6 +1,7 @@
 10/15/25:
 
-- Add basic Item styling for Shop page
+- Use styling from Items for items in Cart
+- Add basic Items styling for Shop page
 - Add basic Navigation styling
 - Add basic Home styling
 - Create Cart tests
