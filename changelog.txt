@@ -1,5 +1,6 @@
 10/15/25:
 
+- Reduce gif size
 - Fix padding issue with buttons
 - Fix final 0 not showing in price if a decimal
 - Use styling from Items for items in Cart
