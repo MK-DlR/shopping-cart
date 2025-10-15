@@ -19,7 +19,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 TOP shopping cart project
 
-live preview:
+live preview: https://shopping-cart-2k3.pages.dev/
 
 using react
 and an api
