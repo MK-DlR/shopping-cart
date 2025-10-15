@@ -1,21 +1,22 @@
 // Items.jsx
 
 import { useOutletContext } from "react-router";
+import styles from "./shop.module.css";
 
 const Items = () => {
     const { quantities, handleIncrement, handleDecrement, handleManualChange, items } = useOutletContext();
 
     return (
-        <div className="itemContainer">
+        <div className={styles.itemContainer}>
             {items.map(item => (
                 <div
                     key={item.id}
-                    className="itemSingle"
+                    className={styles.itemSingle}
                 >
-                    <img className="itemImage" src={item.image} />
-                    <h3 className="itemName">{item.title}</h3>
-                    <p className="itemPrice">${item.price}</p>
-                    <div className="inputGroup">
+                    <img className={styles.itemImage} src={item.image} />
+                    <h3 className={styles.itemName}>{item.title}</h3>
+                    <p className={styles.itemPrice}>${item.price}</p>
+                    <div>
                         <button id={`decrement-${item.id}`} 
                             onClick={() => handleDecrement(item)}>-</button>
                         <input type="text" id="input" 

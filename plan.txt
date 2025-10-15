@@ -18,7 +18,7 @@ Done
 
 3. home page
     a. whatever images/info/etc
-Wip (low priority - do when styling)
+Done
 
 4. shop page
     a. individual card elements
@@ -67,15 +67,17 @@ Done
 
 9. test throuroughly using React Testing Library
     a. Cart
-    Wip
     b. Home
         b1. not necessary
     c. Navigation
-    Done
     d. Shop
         d1. Items
         d2. Shop
             - not necessary, only really displays Items
-    Done
+Done
 
 10. style application
+    a. remember to add Home page content of some kind
+    b. have page load default to Home
+    c. change checkout modal colors to match theme
+Wip

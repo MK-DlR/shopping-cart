@@ -25,7 +25,7 @@ const CheckoutModal = ({ isOpen, onClose }) => {
                     <img 
                         src={poppo}
                         className={styles.modalGif}
-                        alt="Majima and Kiryu from the Yakuza series in Poppos"/>
+                        alt="Majima and Kiryu in Poppos from the Yakuza/RGG series by Sega"/>
                     <p>Would you like that warmed up?</p>
                 </div>
                 <div className={styles.modalFooter}>

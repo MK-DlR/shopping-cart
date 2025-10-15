@@ -1,0 +1,12 @@
+/* home.module.css */
+
+.home {
+    text-align: center;
+}
+
+.homeImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
